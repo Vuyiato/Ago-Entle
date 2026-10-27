@@ -527,9 +527,15 @@ function ScrollReset() {
 
 function BackToTop() {
   const [visible, setVisible] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const updateVisibility = () => setVisible(window.scrollY > 400);
+    const updateVisibility = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(100, Math.round((window.scrollY / max) * 100)) : 0;
+      buttonRef.current?.style.setProperty("--progress", String(progress));
+      setVisible(window.scrollY > 400);
+    };
     window.addEventListener("scroll", updateVisibility, { passive: true });
     updateVisibility();
     return () => window.removeEventListener("scroll", updateVisibility);
@@ -537,6 +543,7 @@ function BackToTop() {
 
   return (
     <button
+      ref={buttonRef}
       className={`back-to-top${visible ? " is-visible" : ""}`}
       type="button"
       aria-label="Back to top"
@@ -547,8 +554,7 @@ function BackToTop() {
       tabIndex={visible ? 0 : -1}
       aria-hidden={!visible}
     >
-      <span aria-hidden="true">↑</span>
-      <span>Top</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" /></svg>
     </button>
   );
 }
