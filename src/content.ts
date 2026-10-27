@@ -209,9 +209,9 @@ export const projects: Project[] = [
 export const team = [
   { name: "Jacob Mohlaka", role: "Managing Director", image: "/images/profile/profile-p13-img61-xref856.png" },
   { name: "Thuli Thiyane", role: "Head of Content / Copywriter", image: "/images/profile/profile-p13-img65-xref876.png" },
-  { name: "Shazz Kubheka", role: "Head of Production / Digital Strategist", image: "/images/profile/profile-p13-img63-xref866.png" },
+  { name: "Shazz Kubheka", role: "Head of Production / Digital Strategist", image: "/images/profile/profile-p13-img62-xref861.png" },
   { name: "Sabelo Thiyane", role: "Project Manager / SEO Specialist", image: "/images/profile/profile-p13-img64-xref871.png" },
-  { name: "Kgomotso Ndwandwe", role: "Head of Media Relations & Strategy", image: "/images/profile/profile-p13-img62-xref861.png" },
+  { name: "Kgomotso Ndwandwe", role: "Head of Media Relations & Strategy", image: "/images/profile/profile-p13-img63-xref866.png" },
   { name: "Nkosana Modipa", role: "Senior Web Designer", image: "/images/profile/profile-p13-img66-xref883.jpeg" },
 ];
 
