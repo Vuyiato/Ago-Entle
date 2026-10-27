@@ -15,11 +15,13 @@ export const divisions: Division[] = [
     number: "01",
     descriptor: "Stories with staying power.",
     description:
-      "We shape how people see, hear and connect with brands through strategic communication and distinctive creative.",
+      "Every brand has a narrative. We bring yours to life, grounded in strategy, infused with creative soul, delivered with excellence.",
     services: [
-      "Public relations & media relations",
-      "Brand storytelling & digital strategy",
-      "Web design & graphic design",
+      "Public relations",
+      "Brand storytelling",
+      "Web design",
+      "Graphic design",
+      "Digital strategy",
       "Influencer management",
       "Media training",
       "Crisis & reputation management",
@@ -36,7 +38,8 @@ export const divisions: Division[] = [
     services: [
       "Concept development",
       "Event production",
-      "Activations & brand launches",
+      "Activations",
+      "Brand launches",
       "Team-building experiences",
       "Curated celebrations",
     ],
@@ -48,11 +51,13 @@ export const divisions: Division[] = [
     number: "03",
     descriptor: "Make identity tangible.",
     description:
-      "From the first touchpoint to the final detail, we bring brand identity into the physical world with care and consistency.",
+      "We translate your values into physical touchpoints that speak loudly and last long.",
     services: [
-      "Corporate gifting & merchandise",
+      "Corporate gifting",
+      "Merchandise",
       "Campaign collateral",
-      "Banners & signage",
+      "Banners",
+      "Signage",
       "Pitch decks",
       "Branding elements",
     ],
@@ -64,8 +69,8 @@ export const divisions: Division[] = [
     number: "04",
     descriptor: "Clarity for what comes next.",
     description:
-      "We offer strategic advisory to brands, public figures and purpose-driven organisations ready to move with intention.",
-    services: ["Strategic advisory", "Brand and communications counsel"],
+      "We guide leaders, shape narratives, and build strategies that position you for influence and impact.",
+    services: ["Strategic advisory for brands, public figures, and purpose-driven organisations"],
     tone: "ink",
   },
 ];
@@ -215,9 +220,124 @@ export const team = [
   { name: "Nkosana Modipa", role: "Senior Web Designer", image: "/images/profile/profile-p13-img66-xref883.jpeg" },
 ];
 
-export const values = ["Integrity", "Excellence", "Creativity", "Empowerment"];
+export const valuesIntro =
+  "Ago Entle exists to build with purpose and precision, inspire creativity, collaboration, and serve with integrity and excellence.";
 
-export const clientMarks = [
+export const values = [
+  { name: "Integrity", text: "We do the right thing, even when no one is watching." },
+  { name: "Excellence", text: "We aim high and deliver beyond expectations." },
+  { name: "Creativity", text: "We lead with originality, innovation, and fearless thinking." },
+  { name: "Empowerment", text: "We invest in people, ideas, and communities because growth must be shared." },
+];
+
+export const whyChoose = [
+  { title: "Proven Impact", text: "Our campaigns deliver measurable results that build credibility." },
+  { title: "Tailored Solutions", text: "We craft custom strategies for every client." },
+  { title: "Multidisciplinary Excellence", text: "From PR to production, we connect all dots under one vision." },
+  { title: "Bold Partnerships", text: "We work with bold brands and institutions shaping the future." },
+];
+
+export type ProjectDetail = {
+  subtitle?: string;
+  tags: string[];
+  highlights: { title: string; text: string }[];
+};
+
+export const projectDetails: Record<string, ProjectDetail> = {
+  "absa-car-giveaway": {
+    subtitle: "Car Give Away Handover",
+    tags: ["Event Planning & Management"],
+    highlights: [
+      { title: "Creative Event Execution", text: "Organized a unique handover experience for competition winners." },
+      { title: "Media Amplification", text: "Enhanced the campaign's reach with PR and event management." },
+    ],
+  },
+  "kelloggs-turns-100": {
+    subtitle: "#100",
+    tags: ["Media Management", "Event Planning & Management"],
+    highlights: [
+      { title: "Internal Event Success", text: "Planned and executed a milestone celebration for Kellogg's 100th anniversary, focusing on staff engagement and appreciation in Johannesburg." },
+      { title: "Key Results", text: "Delivered an immersive experience that celebrated the brand's history and achievements." },
+    ],
+  },
+  sama30: {
+    subtitle: "#SAMA30",
+    tags: ["PR & Event Management"],
+    highlights: [
+      { title: "Record-Breaking Coverage", text: "Delivered an AVE exceeding R700 million, surpassing previous records." },
+      { title: "Event Success", text: "Executed seamless nominee announcement events with extensive media and public engagement." },
+    ],
+  },
+  "mtn-summer-campaign": {
+    subtitle: "Media relations & events",
+    tags: ["Summer Campaign Launch", "Managed R300 Million Budget", "PR & Influencer Led Campaigns"],
+    highlights: [
+      { title: "Innovative Execution", text: "Introduced creative strategies like helicopter prize deliveries to customers." },
+      { title: "Budget Oversight", text: "Managed a R300 million campaign budget." },
+      { title: "Reach", text: "Expanded campaign coverage across provinces, ensuring high engagement and participation." },
+    ],
+  },
+  "kolisi-foundation-kelloggs": {
+    subtitle: "B2B Public Relations",
+    tags: ["Record Breaking Coverage", "Partnership Facilitation", "ROI of 1:8"],
+    highlights: [
+      { title: "Campaign Impact", text: "Positioned Kellogg's and the Kolisi Foundation as leaders in the fight against hunger in South Africa." },
+      { title: "Results", text: "Achieved R2 million in media coverage within one week, with six broadcast media features and four print placements." },
+    ],
+  },
+  "ofentse-peete": {
+    subtitle: "Sponsorship",
+    tags: ["Secured Top Tier Media Interviews", "Secured Funding for Ofentse", "Ofentse was able to travel to China & India"],
+    highlights: [
+      { title: "Achievement", text: "Secured a fully funded sponsorship for South Africa's 8-year-old chess champion and her mother to compete internationally in China and India." },
+      { title: "Impact", text: "Gained corporate support through strategic media exposure, including interviews with top-tier outlets." },
+    ],
+  },
+  "wendy-selebi-book-launch": {
+    subtitle: "Book Launch",
+    tags: ["Event Planning & Management"],
+    highlights: [
+      { title: "Book Launch Execution", text: "Successfully hosted a launch event with key industry figures and media generating strong engagement." },
+      { title: "Media & Interview Success", text: "Secured top-tier media interviews across print, online, radio, and TV, positioning Wendy Selebi as a financial literacy thought leader." },
+      { title: "SAfm Book Reading Feature", text: "Confirmed and completed a book reading segment on SAfm, enhancing book visibility and credibility." },
+    ],
+  },
+  "farmers-friend": {
+    subtitle: "Product Launch",
+    tags: ["Public Relations"],
+    highlights: [
+      { title: "Farming App Launch", text: "Successfully launched and introduced the farming app to the media, generating industry interest and awareness." },
+      { title: "Media Coverage Secured", text: "Obtained coverage across top-tier print, online, and broadcast platforms, highlighting the app's impact on agriculture." },
+      { title: "Industry Engagement", text: "Engaged key stakeholders, farmers, and tech enthusiasts, driving discussions on innovation in farming." },
+    ],
+  },
+  "drip-turns-2": {
+    subtitle: "2 Year Anniversary Event",
+    tags: ["Event Planning & Management"],
+    highlights: [
+      { title: "Celebratory Event", text: "Organized a milestone event with staff, sponsors, and celebrity guests, creating an unforgettable experience." },
+      { title: "Outcome", text: "Sold out tickets and boosted brand loyalty." },
+    ],
+  },
+  "kelloggs-tolaram-swaziland": {
+    subtitle: "Toloram Plant Launch Event",
+    tags: ["Media Management", "Live TV Coverage", "Event Coordination"],
+    highlights: [
+      { title: "Cross-Border Media Management", text: "Coordinated South African and Swaziland journalists for impactful coverage." },
+      { title: "Live TV Coverage", text: "Ensured high-profile visibility for the event." },
+    ],
+  },
+  "sunday-kos": {
+    subtitle: "Event",
+    tags: ["Sold Out Tickets"],
+    highlights: [
+      { title: "Community Impact", text: "Developed and hosted this quarterly food event in Soweto, bringing communities together to share meals and create memories." },
+      { title: "Outcome", text: "Fostered strong community relationships and positioned Sunday Kos as a hallmark of culinary and cultural unity." },
+    ],
+  },
+};
+
+export const clientMarks: { name: string; category: string; image?: string; alt?: string }[] = [
   { name: "MTN", category: "Events & PR", image: "/images/profile/profile-p08-img53-xref660.jpeg", alt: "MTN logo" },
   { name: "Absa", category: "Events & PR", image: "/images/profile/profile-p07-img50-xref598.jpeg", alt: "Absa logo" },
   { name: "Kellogg's", category: "Events & PR", image: "/images/profile/profile-p07-img51-xref601.jpeg", alt: "Kellogg's red K brand mark" },
@@ -226,22 +346,29 @@ export const clientMarks = [
   { name: "Farmer's Friend", category: "Events & PR", image: "/images/profile/profile-p09-img57-xref734.jpeg", alt: "Farmers Friend logo" },
   { name: "Drip", category: "Events & PR", image: "/images/profile/profile-p10-img58-xref772.jpeg", alt: "Drip logo" },
   { name: "Albany Bakeries", category: "Events & PR", image: "/images/profile/profile-p11-img15-xref173.jpeg", alt: "Albany Bakeries logo" },
-  { name: "Gijima", category: "Events & PR", image: "/images/profile/profile-p11-img18-xref176.jpeg", alt: "Gijima Technology People logo" },
+  { name: "Gijima Technology People", category: "Events & PR", image: "/images/profile/profile-p11-img18-xref176.jpeg", alt: "Gijima Technology People logo" },
   { name: "Hellopaisa", category: "Events & PR", image: "/images/profile/profile-p11-img19-xref177.jpeg", alt: "Hellopaisa logo" },
   { name: "Audiomack Africa", category: "Events & PR", image: "/images/profile/profile-p11-img20-xref178.jpeg", alt: "Audiomack Africa logo" },
-  { name: "Moti", category: "Events & PR", image: "/images/profile/profile-p11-img22-xref180.jpeg", alt: "Moti logo" },
+  { name: "MOTI", category: "Events & PR", image: "/images/profile/profile-p11-img22-xref180.jpeg", alt: "Moti logo" },
   { name: "The Lebo Lion Show", category: "Events & PR", image: "/images/profile/profile-p11-img23-xref181.jpeg", alt: "The Lebo Lion Show logo" },
-  { name: "Mlungis Nkos Maths & Science Centre", category: "Events & PR", image: "/images/profile/profile-p11-img24-xref182.jpeg", alt: "Mlungis Nkos Maths and Science Centre logo" },
+  { name: "Mlungisi Nkosi Maths & Science Centre", category: "Events & PR", image: "/images/profile/profile-p11-img24-xref182.jpeg", alt: "Mlungisi Nkosi Maths and Science Centre logo" },
   { name: "Khulu Fine Wine", category: "Events & PR", image: "/images/profile/profile-p11-img26-xref184.jpeg", alt: "Khulu Fine Wine logo" },
   { name: "Obaro", category: "Events & PR", image: "/images/profile/profile-p11-img27-xref185.jpeg", alt: "Obaro logo" },
   { name: "m.com", category: "Events & PR", image: "/images/profile/profile-p11-img29-xref187.jpeg", alt: "m.com logo" },
   { name: "The Legal Indaba", category: "Events & PR", image: "/images/profile/profile-p11-img30-xref188.jpeg", alt: "The Legal Indaba logo" },
   { name: "Muvhango", category: "Events & PR", image: "/images/profile/profile-p11-img31-xref189.png", alt: "Muvhango logo" },
+  { name: "Defy", category: "Events & PR" },
+  { name: "SBI Advisory Services", category: "Web Design" },
+  { name: "Ndlondlofied", category: "Web Design" },
+  { name: "Digital Dash (Pty) Ltd", category: "Web Design" },
   { name: "Sue Phalane Trading & Projects", category: "Web Design", image: "/images/profile/profile-p12-img36-xref197.png", alt: "Sue Phalane Trading and Projects logo" },
-  { name: "O'Pila Haircare", category: "Web Design", image: "/images/profile/profile-p12-img37-xref198.png", alt: "O'Pila Haircare logo" },
+  { name: "O'pila Haircare", category: "Web Design", image: "/images/profile/profile-p12-img37-xref198.png", alt: "O'Pila Haircare logo" },
   { name: "Smonky Trader", category: "Web Design", image: "/images/profile/profile-p12-img38-xref199.png", alt: "Smonky Trader logo" },
   { name: "Sengweni Projects", category: "Web Design", image: "/images/profile/profile-p12-img39-xref200.png", alt: "Sengweni Projects logo" },
   { name: "Mafube Technologies", category: "Web Design", image: "/images/profile/profile-p12-img41-xref202.png", alt: "Mafube Technologies logo" },
-  { name: "Daza Human Capital", category: "Web Design", image: "/images/profile/profile-p12-img42-xref203.png", alt: "Daza Human Capital logo" },
+  { name: "Human Capital", category: "Web Design", image: "/images/profile/profile-p12-img42-xref203.png", alt: "Human Capital logo" },
   { name: "Kabelano Training Solutions", category: "Web Design", image: "/images/profile/profile-p12-img43-xref204.png", alt: "Kabelano Training Solutions logo" },
 ];
+
+
+

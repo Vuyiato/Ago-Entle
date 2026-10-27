@@ -471,3 +471,30 @@ button { color: inherit; }
   .client-marquee { overflow-x: auto; }
   .client-marquee-track { animation: none !important; }
 }
+
+.values-list>div { grid-template-columns: 50px 160px 1fr; padding: 16px 0; gap: 8px; }
+.values-list p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.values-intro { max-width: 340px; margin-top: 20px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.mission-vision { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 28px 0; }
+.mission-vision article { border-top: 1px solid var(--line); padding-top: 14px; }
+.mission-vision span { color: var(--teal); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+.why-section { padding-block: 80px; }
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 36px; }
+.why-grid article { border-top: 1px solid var(--line); padding-top: 16px; }
+.why-grid span { color: var(--teal); font-size: 11px; }
+.why-grid h3 { margin: 10px 0 8px; font: 600 20px "Manrope", sans-serif; letter-spacing: -.03em; }
+.why-grid p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.project-extra { margin: 20px 0; }
+.project-subtitle { color: var(--teal); font-weight: 600; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 12px 0; }
+.project-tags li { border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 12px; }
+.project-highlights { list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 12px; }
+.project-highlights li { font-size: 15px; line-height: 1.55; }
+.client-logo-text span { text-align: center; }
+@media (max-width: 800px) {
+  .values-list>div { grid-template-columns: 36px 1fr; }
+  .values-list p { grid-column: 2; }
+  .mission-vision { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) { .why-grid { grid-template-columns: 1fr; } }

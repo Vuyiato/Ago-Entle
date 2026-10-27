@@ -7,7 +7,7 @@ import {
   useLocation,
   useParams,
 } from "react-router-dom";
-import { clientMarks, divisions, projects, team, values, type Project } from "./content";
+import { clientMarks, divisions, projectDetails, projects, team, values, valuesIntro, whyChoose, type Project } from "./content";
 
 const emailAddress = "Jacob@agoentle.co.za";
 const phoneNumber = "082 534 2679";
@@ -205,8 +205,8 @@ function ClientGallery({ layout }: { layout: "marquee" | "grid" }) {
                   {[0, 1].map((copy) => (
                     <div className="client-marquee-sequence" aria-hidden={copy === 1} key={copy}>
                       {clients.map((client) => (
-                        <div className="client-logo" key={client.name}>
-                          <img src={client.image} alt="" loading="lazy" />
+                        <div className={`client-logo${client.image ? "" : " client-logo-text"}`} key={client.name}>
+                          {client.image && <img src={client.image} alt="" loading="lazy" />}
                           <span>{client.name}</span>
                         </div>
                       ))}
@@ -217,8 +217,8 @@ function ClientGallery({ layout }: { layout: "marquee" | "grid" }) {
             ) : (
               <div className="client-names">
                 {clients.map((client) => (
-                  <div className="client-logo" key={client.name}>
-                    <img src={client.image} alt="" loading="lazy" />
+                  <div className={`client-logo${client.image ? "" : " client-logo-text"}`} key={client.name}>
+                    {client.image && <img src={client.image} alt="" loading="lazy" />}
                     <span>{client.name}</span>
                   </div>
                 ))}
@@ -228,6 +228,16 @@ function ClientGallery({ layout }: { layout: "marquee" | "grid" }) {
         );
       })}
     </div>
+  );
+}
+
+function WhyChoose() {
+  return (
+    <section className="why-section section-wrap">
+      <Eyebrow>Why choose Ago Entle Group</Eyebrow>
+      <h2>Reasons to<br /><em>build with us.</em></h2>
+      <div className="why-grid">{whyChoose.map((item, i) => <article key={item.title}><span>0{i + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+    </section>
   );
 }
 
@@ -293,6 +303,8 @@ function Home() {
           <DivisionList />
           <ArrowLink to="/expertise">Explore all expertise</ArrowLink>
         </section>
+
+        <WhyChoose />
 
         <section className="work-section section-wrap">
           <div className="section-heading work-heading">
@@ -361,11 +373,12 @@ function About() {
       <PageIntro label="The house / About the group" title={<>A name with<br /><em>a purpose.</em></>} copy="Ago means building. Entle means beautiful. Together, they describe the work we believe in: purposeful construction, made with care." />
       <section className="about-story section-wrap">
         <Eyebrow>Our story</Eyebrow>
-        <div><h2>We build the things<br />that move <em>people.</em></h2><p>Ago Entle Group is a South African multidisciplinary creative and strategic partner. We bring media, experiences, branding and consulting together to help ambitious ideas become meaningful work.</p><p>Our mission is to deliver high-impact services and experiences through bold thinking, creative execution and lasting impact. Our vision is to become one of Africa's most influential creative and strategic groups.</p></div>
+        <div><h2>We build the things<br />that move <em>people.</em></h2><p>Ago Entle Group is a South African multidisciplinary creative and strategic partner. We bring media, experiences, branding and consulting together to help ambitious ideas become meaningful work.</p><p>Ago Entle Group is a South African-based multidisciplinary company committed to building impactful ventures across media, events, branding, and consulting. The name "Ago" means building, representing our commitment to structure, progress, and legacy. "Entle" means beautiful. Together, our name reflects our core belief: We build with excellence and lead with purpose.</p><p>Ago Entle Group is a house of ideas, innovation, and strategic execution. Our culture is rooted in collaboration, bold creativity, and social consciousness.</p><div className="mission-vision"><article><span>Our mission</span><p>To deliver high-impact services and experiences that are grounded in bold thinking, creative execution, and lasting impact.</p></article><article><span>Our vision</span><p>To become one of Africa's most influential creative and strategic groups, known for building brands, projects, and platforms that matter.</p></article></div><p><strong>Welcome to the house that builds with excellence.</strong></p></div>
       </section>
       <section className="values-section">
-        <div className="section-wrap values-inner"><div><Eyebrow>What guides us</Eyebrow><h2>Principles in<br /><em>practice.</em></h2></div><div className="values-list">{values.map((value, i) => <div key={value}><span>0{i + 1}</span><h3>{value}</h3><span aria-hidden="true">↗</span></div>)}</div></div>
+        <div className="section-wrap values-inner"><div><Eyebrow>What guides us</Eyebrow><h2>Principles in<br /><em>practice.</em></h2><p className="values-intro">{valuesIntro}</p></div><div className="values-list">{values.map((value, i) => <div key={value.name}><span>0{i + 1}</span><h3>{value.name}</h3><p>{value.text}</p></div>)}</div></div>
       </section>
+      <WhyChoose />
       <section className="section-wrap about-divisions"><Eyebrow>How we make it happen</Eyebrow><h2>One group.<br /><em>Four ways forward.</em></h2><DivisionList compact /></section>
       <section className="about-clients section-wrap">
         <div className="section-heading">
@@ -435,7 +448,7 @@ function ProjectPage() {
   return (
     <main>
       <PageIntro label={`Selected work / ${project.category}`} title={<>{project.client}<br /><em>{project.title}</em></>} copy={project.summary} />
-      <section className="project-detail section-wrap">            <div className="project-detail-art"><img className={`project-image-${project.imageFit}`} src={project.image} alt={project.imageAlt} /><span>{project.client}</span></div><div className="project-detail-copy"><Eyebrow>Project overview</Eyebrow><h2>Built for<br /><em>the moment.</em></h2><p>{project.summary}</p>{project.outcome && <div className="project-outcome"><span>Reported outcome</span><strong>{project.outcome}</strong></div>}<p className="project-disclaimer">Project detail is based on information available in the company profile. Further case-study detail can be added when confirmed.</p></div></section>
+      <section className="project-detail section-wrap">            <div className="project-detail-art"><img className={`project-image-${project.imageFit}`} src={project.image} alt={project.imageAlt} /><span>{project.client}</span></div><div className="project-detail-copy"><Eyebrow>Project overview</Eyebrow><h2>Built for<br /><em>the moment.</em></h2><p>{project.summary}</p>{projectDetails[project.slug] && <div className="project-extra">{projectDetails[project.slug].subtitle && <p className="project-subtitle">{projectDetails[project.slug].subtitle}</p>}<ul className="project-tags">{projectDetails[project.slug].tags.map((tag) => <li key={tag}>{tag}</li>)}</ul><ul className="project-highlights">{projectDetails[project.slug].highlights.map((item) => <li key={item.title}><strong>{item.title}:</strong> {item.text}</li>)}</ul></div>}{project.outcome && <div className="project-outcome"><span>Reported outcome</span><strong>{project.outcome}</strong></div>}<p className="project-disclaimer">Project detail is based on information available in the company profile. Further case-study detail can be added when confirmed.</p></div></section>
       <section className="section-wrap related-work"><Eyebrow>Continue exploring</Eyebrow><h2>More work<br /><em>in motion.</em></h2><SelectedWork limit={3} /><ArrowLink to="/work">Back to all work</ArrowLink></section>
       <CTA />
     </main>
@@ -477,7 +490,7 @@ function Contact() {
     <main>
       <PageIntro label="The house / Contact" title={<>Let's build<br /><em>something good.</em></>} copy="Tell us what you're imagining. We'll start with a conversation." />
       <section className="contact-section section-wrap">
-        <div className="contact-details"><Eyebrow>Start a conversation</Eyebrow><h2>Good work<br />starts <em>here.</em></h2><p>Tell us where you want to go. We'll help you find a way to build it.</p><a href={`mailto:${emailAddress}`}>{emailAddress}<span aria-hidden="true">↗</span></a><a href="tel:+27825342679">{phoneNumber}<span aria-hidden="true">↗</span></a><small>South Africa</small></div>
+        <div className="contact-details"><Eyebrow>Start a conversation</Eyebrow><h2>Good work<br />starts <em>here.</em></h2><p>Tell us where you want to go. We'll help you find a way to build it.</p><a href={`mailto:${emailAddress}`}>{emailAddress}<span aria-hidden="true">↗</span></a><a href="tel:+27825342679">{phoneNumber}<span aria-hidden="true">↗</span></a><small>South Africa · @AgoEntl PR &amp; Branding</small></div>
         <form className="enquiry-form" onSubmit={handleSubmit}>
           <div className="form-grid">
             <label>Your name<input name="name" autoComplete="name" required /></label>
@@ -561,3 +574,4 @@ export default function App() {
     </>
   );
 }
+
