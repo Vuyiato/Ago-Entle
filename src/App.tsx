@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   Link,
   NavLink,
@@ -42,12 +42,32 @@ function ArchitecturalArt({ className }: { className: string }) {
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const location = useLocation();
+  const previousScrollY = useRef(0);
 
   useEffect(() => setMenuOpen(false), [location.pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const difference = currentScrollY - previousScrollY.current;
+
+      if (currentScrollY < 80 || difference < -4 || menuOpen) {
+        setHidden(false);
+      } else if (difference > 4 && currentScrollY > 120) {
+        setHidden(true);
+      }
+
+      previousScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [menuOpen]);
+
   return (
-    <header className="site-header">
+    <header className={`site-header${hidden && !menuOpen ? " is-hidden" : ""}`}>
       <Link to="/" className="wordmark" aria-label="Ago Entle Group home">
         <img className="brand-logo" src="/brand/mark-light.png" alt="" width="40" height="40" />
         <span>
@@ -76,9 +96,9 @@ function Header() {
         <NavLink to="/expertise">Expertise</NavLink>
         <NavLink to="/work">Work</NavLink>
         <NavLink to="/people">People</NavLink>
-        <Link className="nav-contact" to="/contact">
+        <NavLink className="nav-contact" to="/contact">
           Start a project <span aria-hidden="true">↗</span>
-        </Link>
+        </NavLink>
       </nav>
     </header>
   );
@@ -492,6 +512,34 @@ function ScrollReset() {
   return null;
 }
 
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const updateVisibility = () => setVisible(window.scrollY > 400);
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    updateVisibility();
+    return () => window.removeEventListener("scroll", updateVisibility);
+  }, []);
+
+  return (
+    <button
+      className={`back-to-top${visible ? " is-visible" : ""}`}
+      type="button"
+      aria-label="Back to top"
+      onClick={() => window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      })}
+      tabIndex={visible ? 0 : -1}
+      aria-hidden={!visible}
+    >
+      <span aria-hidden="true">↑</span>
+      <span>Top</span>
+    </button>
+  );
+}
+
 export default function App() {
   return (
     <>
@@ -509,6 +557,7 @@ export default function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
+      <BackToTop />
     </>
   );
 }
