@@ -29,6 +29,7 @@ button { color: inherit; }
 .site-header { height: 82px; padding: 0 5.2vw; display: flex; align-items: center; justify-content: space-between; background: var(--forest); color: var(--paper); position: relative; z-index: 20; }
 .wordmark, .footer-lockup { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: .13em; }
 .wordmark small { display: block; font-size: 8px; letter-spacing: .35em; margin-top: 3px; font-weight: 500; }
+.brand-logo { width: 40px; height: 40px; object-fit: contain; }
 .brand-mark { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: square; stroke-linejoin: miter; }
 .primary-nav { display: flex; align-items: center; gap: clamp(24px, 3.5vw, 55px); font-size: 12px; letter-spacing: .06em; }
 .primary-nav>a:not(.nav-contact) { opacity: .76; transition: opacity .2s ease; }
@@ -194,7 +195,7 @@ button { color: inherit; }
 .interior-cta { min-height: 420px; }
 .site-footer { background: #0c120e; color: var(--paper); padding: 42px 5.2vw; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; gap: 24px; }
 .footer-lockup { font-size: 10px; }
-.footer-lockup .brand-mark { width: 27px; height: 27px; }
+.footer-lockup .brand-logo { width: 32px; height: 32px; }
 .site-footer>p { color: rgba(242,241,233,.58); font-size: 10px; text-align: center; }
 .footer-links { display: flex; justify-content: end; gap: 18px; font-size: 9px; }
 .footer-links a:first-child { color: var(--teal); }
@@ -408,6 +409,7 @@ button { color: inherit; }
 }
 @media (max-width: 480px) {
   .wordmark { font-size: 11px; }
+  .brand-logo { width: 34px; height: 34px; }
   .brand-mark { width: 30px; height: 30px; }
   .hero { min-height: 690px; }
   .hero h1 { font-size: clamp(46px, 13vw, 62px); }

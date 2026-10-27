@@ -49,7 +49,7 @@ function Header() {
   return (
     <header className="site-header">
       <Link to="/" className="wordmark" aria-label="Ago Entle Group home">
-        <Mark />
+        <img className="brand-logo" src="/brand/mark-light.png" alt="" width="40" height="40" />
         <span>
           AGO ENTLE <small>GROUP</small>
         </span>
@@ -88,7 +88,7 @@ function Footer() {
   return (
     <footer className="site-footer">
       <Link to="/" className="footer-lockup">
-        <Mark />
+        <img className="brand-logo" src="/brand/mark-light.png" alt="" width="40" height="40" />
         <span>AGO ENTLE GROUP</span>
       </Link>
       <p>Built with Excellence. Led with Purpose.</p>
